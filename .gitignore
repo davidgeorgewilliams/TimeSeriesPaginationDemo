@@ -1,0 +1,17 @@
+# Intellij Files
+*.iml
+.idea
+
+# Maven Files
+dependency-reduced-pom.xml
+target
+
+# Model files
+/models
+/cards
+
+# Web build files
+/src/main/resources/web
+
+# Operating System Files
+.DS_Store

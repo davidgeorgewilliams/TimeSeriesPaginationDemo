@@ -5,10 +5,9 @@ import com.davidgeorgewilliams.demo.series.SeriesItem;
 import com.davidgeorgewilliams.demo.series.multi.MultiSeries;
 import com.davidgeorgewilliams.demo.series.multi.MultiSeriesResult;
 import com.davidgeorgewilliams.demo.series.multi.strategies.MultiSeriesConstantStrategy;
-import com.davidgeorgewilliams.demo.series.multi.strategies.MultiSeriesStrategy;
 import com.davidgeorgewilliams.demo.series.multi.strategies.MultiSeriesQLearningStrategy;
+import com.davidgeorgewilliams.demo.series.multi.strategies.MultiSeriesStrategy;
 import com.davidgeorgewilliams.demo.series.time.InMemoryTimeSeries;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -16,7 +15,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.List;
-
 import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -33,12 +31,12 @@ public class Main {
 
         final MultiSeriesConstantStrategy multiSeriesConstantStrategy = MultiSeriesConstantStrategy.of(100, 2);
 
-        processMultiSeriesStrategy(multiSeriesConstantStrategy, "results/constantStrategy.csv");
+        processMultiSeriesStrategy(multiSeriesConstantStrategy, "results/data/constantStrategy.csv");
 
         final List<RangeDef> rangeDefs = List.of(RangeDef.of(5, 100), RangeDef.of(5, 100));
         final MultiSeriesQLearningStrategy multiSeriesQLearningStrategy = MultiSeriesQLearningStrategy.of(rangeDefs);
 
-        processMultiSeriesStrategy(multiSeriesQLearningStrategy, "results/qLearningStrategy.csv");
+        processMultiSeriesStrategy(multiSeriesQLearningStrategy, "results/data/qLearningStrategy.csv");
     }
 
     private static MultiSeries<Instant, Void> createMultiSeries() {
@@ -57,6 +55,8 @@ public class Main {
     private static void processMultiSeriesStrategy(@NonNull final MultiSeriesStrategy multiSeriesStrategy,
                                                    @NonNull final String pathToReport) throws IOException {
         @Cleanup BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get(pathToReport), StandardCharsets.UTF_8, CREATE, TRUNCATE_EXISTING, WRITE);
+        final String headerString = "iteration,score\n";
+        bufferedWriter.write(headerString, 0, headerString.length());
         MultiSeries<Instant, Void> multiSeries = createMultiSeries();
         Instant start = Instant.now();
         for (int i = 0; i < 10000; i++) {

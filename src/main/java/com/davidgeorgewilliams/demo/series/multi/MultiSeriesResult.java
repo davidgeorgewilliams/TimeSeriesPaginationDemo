@@ -1,14 +1,13 @@
 package com.davidgeorgewilliams.demo.series.multi;
 
 import com.davidgeorgewilliams.demo.series.SeriesItem;
+import java.util.List;
+import java.util.Map;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import lombok.experimental.Accessors;
-
-import java.util.List;
-import java.util.Map;
 
 @Accessors(fluent = true)
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

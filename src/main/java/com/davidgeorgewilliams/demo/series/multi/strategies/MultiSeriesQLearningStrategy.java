@@ -1,14 +1,11 @@
 package com.davidgeorgewilliams.demo.series.multi.strategies;
 
-import com.davidgeorgewilliams.demo.learning.QLearning;
-
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.davidgeorgewilliams.demo.domain.ItemCombinator;
 import com.davidgeorgewilliams.demo.domain.RangeDef;
+import com.davidgeorgewilliams.demo.learning.QLearning;
 import com.davidgeorgewilliams.demo.series.multi.MultiSeriesResult;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

@@ -1,13 +1,12 @@
 package com.davidgeorgewilliams.demo.series.time;
 
+import com.davidgeorgewilliams.demo.series.SeriesItem;
 import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-
-import com.davidgeorgewilliams.demo.series.SeriesItem;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

@@ -1,9 +1,8 @@
 package com.davidgeorgewilliams.demo.series.multi.strategies;
 
+import com.davidgeorgewilliams.demo.series.multi.MultiSeriesResult;
 import java.util.Collections;
 import java.util.List;
-
-import com.davidgeorgewilliams.demo.series.multi.MultiSeriesResult;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

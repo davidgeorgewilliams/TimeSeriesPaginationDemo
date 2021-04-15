@@ -55,7 +55,7 @@ public class Main {
     private static void processMultiSeriesStrategy(@NonNull final MultiSeriesStrategy multiSeriesStrategy,
                                                    @NonNull final String pathToReport) throws IOException {
         @Cleanup BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get(pathToReport), StandardCharsets.UTF_8, CREATE, TRUNCATE_EXISTING, WRITE);
-        final String headerString = "iteration,score\n";
+        final String headerString = "iteration,reward\n";
         bufferedWriter.write(headerString, 0, headerString.length());
         MultiSeries<Instant, Void> multiSeries = createMultiSeries();
         Instant start = Instant.now();
@@ -78,7 +78,9 @@ public class Main {
             }
             final String reportString = String.format("%s,%s\n", i, delivered - discarded);
             bufferedWriter.write(reportString, 0, reportString.length());
-            log.info(String.format("%s %s %s %s %s", i, start, delivered, discarded, requestSizes));
+            if (i % 100 == 0) {
+                log.info(String.format("%s %s %s %s %s", i, start, delivered, discarded, requestSizes));
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ Each file contains two columns, the iteration number and the reward. The reward 
 
 Where delivered and discarded are determined by the maxmin instant of two interleaving feeds.
 
-The constant strategy is set to naive constant values of `(100, 100)` for both simulated upstream feeds.
+The constant strategy is set to naive values of `(100, 100)` for both simulated upstream feeds.
 
 ## Plotting Results
 

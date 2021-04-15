@@ -4,8 +4,8 @@ import pandas as pd
 
 plt.style.use('dark_background')
 
-constant_df = pd.read_csv("data/constantStrategy.csv")
-qlearning_df = pd.read_csv("data/qLearningStrategy.csv")
+constant_df = pd.read_csv("results/data/constantStrategy.csv")
+qlearning_df = pd.read_csv("results/data/qLearningStrategy.csv")
 
 plt.title('Reward = delivered - discarded')
 plt.ylabel('Reward')
@@ -24,5 +24,5 @@ plt.plot(qlearning_rolling["reward"])
 plt.legend(['Constant', 'Q-Learning'], loc='upper center', bbox_to_anchor=(0.5, -0.20), ncol=2)
 plt.tight_layout(pad=1)
 
-plt.savefig(f"rewards.png", dpi=400)
+plt.savefig(f"results/rewards.png", dpi=400)
 

@@ -24,4 +24,4 @@ plt.plot(qlearning_rolling["score"])
 plt.legend(['Constant', 'Q-Learning'], loc='upper center', bbox_to_anchor=(0.5, -0.20), ncol=2)
 plt.tight_layout(pad=1)
 
-plt.savefig(f"scores.png", dpi=400)
+plt.savefig(f"rewards.png", dpi=400)
